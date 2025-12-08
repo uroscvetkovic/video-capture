@@ -1,7 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import "./VideoPreview.scss";
 
 const VideoPreview = () => {
+  const [videoPreviewText, setVideoPreviewText] = useState("Video Preview");
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const start = async () => {
@@ -12,7 +13,9 @@ const VideoPreview = () => {
           videoRef.current.srcObject = stream;
         }
       })
-      .catch((error) => console.error("Error accessing media devices:", error));
+      .catch((error) =>
+        setVideoPreviewText("Error accessing media devices: " + error)
+      );
   };
 
   return (
@@ -22,7 +25,7 @@ const VideoPreview = () => {
       </button>
 
       <div className="video-overlay">
-        <p>Video Preview</p>
+        <p>{videoPreviewText}</p>
         <video className="video-element" ref={videoRef} autoPlay muted></video>
       </div>
     </div>

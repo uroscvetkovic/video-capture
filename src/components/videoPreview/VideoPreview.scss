@@ -23,6 +23,13 @@
         transform: translateY(2px);
     }
 
+    .overlay-text {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%, 0%);
+        font-size: 14px;
+    }
+
     .video-overlay {
         margin-top: 1em;
         width: 100%;
@@ -31,19 +38,29 @@
         border-radius: 12px;
         display: flex;
 
-        p {
-            position: absolute;
-            left: 50%;
-            transform: translate(-50%, 0%);
-            font-size: 14px;
-        }
-
         video {
             z-index: 10;
             border-radius: 10px;
             width: 100%;
             height: auto;
             margin: 0;
+        }
+    }
+
+    .snapshot-overlay {
+        margin-top: 1em;
+        margin-bottom: 1em;
+        width: 100%;
+        background-color: #1a1a1a;
+        max-width: 90vw;
+        border-radius: 12px;
+        display: flex;
+
+        .snapshot-canvas {
+            z-index: 10;
+            border-radius: 10px;
+            width: 100%;
+            height: auto;
         }
     }
 }

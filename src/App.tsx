@@ -6,8 +6,8 @@ function App() {
     <>
       <h1 className="title">Video capture</h1>
       <p className="description">
-        Click the button to allow camera access.<br />A photo will be taken
-        automatically after a few seconds.
+        Click the button to allow camera access.
+        <br />A photo will be taken automatically after a few seconds.
       </p>
 
       <VideoPreview />

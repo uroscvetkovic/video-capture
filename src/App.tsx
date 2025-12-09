@@ -1,10 +1,12 @@
 import { useRef, useState } from "react";
 import "./App.scss";
 import Instructions from "./components/instructions/Instructions";
+import CountdownTimer from "./components/countdownTimer/CountdownTimer";
 
 function App() {
   const [videoPreviewText, setVideoPreviewText] = useState("Video Preview");
   const [showResetButton, setshowResetButton] = useState(false);
+  const [showCountdownTimer, setShowCountdownTimer] = useState(false);
 
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -15,6 +17,7 @@ function App() {
       .then((stream) => {
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
+          setShowCountdownTimer(true);
 
           setTimeout(() => {
             captureImage();
@@ -51,6 +54,7 @@ function App() {
 
     video.srcObject = null;
     setshowResetButton(true);
+    setShowCountdownTimer(false);
   };
 
   const reset = () => {
@@ -60,8 +64,8 @@ function App() {
       videoRef.current.srcObject = null;
     }
 
-    const canvas = canvasRef.current;
-    if (canvas) {
+    if (canvasRef.current) {
+      const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
       if (ctx) ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
@@ -86,6 +90,7 @@ function App() {
             autoPlay
             muted
           ></video>
+          <CountdownTimer show={showCountdownTimer} />
         </div>
 
         <div className="snapshot-overlay">

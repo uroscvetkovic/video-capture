@@ -9,9 +9,13 @@ This project is a **Video Preview & Timed Snapshot** application built with **Re
   Your browser does not support the video tag.
 </video>
 
+<video autoplay  controls>
+  <source src="[Example2.mp4](https://github.com/user-attachments/assets/93628daf-f86b-4477-8def-d8fe361febce)" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 https://github.com/user-attachments/assets/285d808e-a956-4385-b398-7eaf95d82b25
-
+https://github.com/user-attachments/assets/93628daf-f86b-4477-8def-d8fe361febce
 
 ### Prerequisites
 - Node.js (tested on v22.19.0)

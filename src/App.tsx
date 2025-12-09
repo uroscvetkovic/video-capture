@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import "./App.scss";
+import Instructions from "./components/instructions/Instructions";
 
 function App() {
   const [videoPreviewText, setVideoPreviewText] = useState("Video Preview");
@@ -64,22 +65,11 @@ function App() {
 
   return (
     <>
-      <div className="instructions">
-        <h1 className="title">Video capture</h1>
-        <p className="description">
-          Click the button to allow camera access.
-          <br />A photo will be taken automatically after a few seconds.
-        </p>
-
-        <div className="button-container">
-          <button className="start-button" onClick={() => start()}>
-            Start
-          </button>
-          <button className="reset-button" style={{display: showResetButton ? "block" : "none" }} onClick={() => reset()}>
-            Reset
-          </button>
-        </div>
-      </div>
+      <Instructions
+        start={start}
+        reset={reset}
+        showResetButton={showResetButton}
+      />
 
       <div className="video-preview-root">
         <div className="video-overlay">

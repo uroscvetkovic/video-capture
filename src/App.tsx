@@ -43,6 +43,12 @@ function App() {
     const stream = video.srcObject as MediaStream;
     stream.getTracks().forEach((track) => track.stop());
 
+    //scroll to bottom of the page to show the captured image
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: "smooth",
+    });
+
     video.srcObject = null;
     setshowResetButton(true);
   };

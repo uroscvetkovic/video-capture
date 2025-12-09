@@ -55,6 +55,7 @@ function App() {
     video.srcObject = null;
     setshowResetButton(true);
     setShowCountdownTimer(false);
+    setVideoPreviewText("Video Preview");
   };
 
   const reset = () => {
